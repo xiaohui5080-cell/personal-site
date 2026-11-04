@@ -1,0 +1,326 @@
+/* ============================================================
+   Markdown 正文 · 杂志排版
+   ============================================================ */
+.prose {
+  font-family: var(--serif-zh);
+  font-size: clamp(16px, 1.35vw, 17.5px);
+  line-height: 2.05;
+  color: var(--ink);
+  letter-spacing: 0.015em;
+  position: relative;
+}
+
+.prose > * {
+  margin: 0 0 1.35em;
+}
+
+/* 首段首字下沉 */
+.prose > p.has-dropcap::first-letter {
+  float: left;
+  font-family: var(--serif-zh);
+  font-size: 3.9em;
+  line-height: 0.86;
+  font-weight: 700;
+  padding: 0.06em 0.12em 0 0;
+  color: var(--accent);
+}
+
+
+
+.prose p {
+  text-indent: 0;
+}
+
+.prose h2 {
+  position: relative;
+  margin-top: 2.6em;
+  margin-bottom: 0.9em;
+  padding-top: 0.85em;
+  font-family: var(--serif-zh);
+  font-size: clamp(20px, 2.1vw, 24px);
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  border-top: 1px solid var(--rule);
+}
+
+.prose h2::before {
+  content: '';
+  position: absolute;
+  top: -1px;
+  left: 0;
+  width: 44px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.prose h3 {
+  margin-top: 2em;
+  margin-bottom: 0.7em;
+  font-family: var(--serif-zh);
+  font-size: clamp(16.5px, 1.7vw, 19px);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  padding-left: 14px;
+  border-left: 3px solid var(--accent);
+}
+
+.prose h4 {
+  margin-top: 1.8em;
+  font-size: 1em;
+  letter-spacing: 0.1em;
+}
+
+.prose strong {
+  font-weight: 700;
+  color: var(--ink);
+  background: linear-gradient(transparent 62%, var(--accent-soft) 62%);
+  padding-bottom: 1px;
+}
+
+.prose em {
+  font-style: italic;
+}
+
+.prose a {
+  color: var(--accent);
+  border-bottom: 1px solid var(--accent-soft);
+  transition: border-color 0.25s var(--ease);
+}
+
+.prose a:hover {
+  border-color: var(--accent);
+}
+
+.prose ul,
+.prose ol {
+  padding-left: 1.4em;
+}
+
+.prose li {
+  margin-bottom: 0.5em;
+}
+
+.prose li::marker {
+  color: var(--accent);
+}
+
+.prose ul li::marker {
+  content: '—  ';
+  font-size: 0.85em;
+}
+
+.prose ol li::marker {
+  font-family: var(--mono);
+  font-size: 0.85em;
+}
+
+.prose blockquote {
+  margin: 2em 0;
+  padding: 0.2em 0 0.2em 1.4em;
+  border-left: 2px solid var(--accent);
+  font-size: 1.02em;
+  font-style: normal;
+  color: var(--ink-2);
+}
+
+.prose blockquote p {
+  margin: 0;
+}
+
+.prose code {
+  font-family: var(--mono);
+  font-size: 0.86em;
+  background: var(--paper-3);
+  padding: 0.15em 0.4em;
+  border-radius: 2px;
+}
+
+.prose pre {
+  background: var(--ink);
+  color: var(--paper-2);
+  padding: 1.2em 1.4em;
+  overflow-x: auto;
+  margin: 1.8em 0;
+  font-size: 13px;
+  line-height: 1.8;
+}
+
+.prose pre code {
+  background: none;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+.prose hr {
+  border: 0;
+  height: 1px;
+  background: var(--rule);
+  margin: 3em auto;
+  width: 40%;
+}
+
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2em 0;
+  font-size: 0.88em;
+  line-height: 1.75;
+}
+
+.prose th {
+  text-align: left;
+  font-family: var(--sans);
+  font-size: 0.78em;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  font-weight: 600;
+  border-bottom: 1px solid var(--ink);
+  padding: 10px 12px 10px 0;
+}
+
+.prose td {
+  border-bottom: 1px solid var(--rule);
+  padding: 11px 12px 11px 0;
+  vertical-align: top;
+}
+
+.prose tr:last-child td {
+  border-bottom: 1px solid var(--rule);
+}
+
+.prose img {
+  width: 100%;
+  margin: 2em 0;
+}
+
+.prose input[type='checkbox'] {
+  accent-color: var(--accent);
+  margin-right: 6px;
+}
+
+/* ── 旁注 sidenote ── */
+.prose .sidenote-reference {
+  font-family: var(--mono);
+  font-size: 0.6em;
+  vertical-align: super;
+  line-height: 0;
+  margin-left: 2px;
+}
+
+.prose .sidenote-reference a {
+  display: inline-grid;
+  place-items: center;
+  min-width: 15px;
+  height: 15px;
+  padding: 0 2px;
+  border: 0;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--paper);
+  font-size: 9px;
+  transition: transform 0.25s var(--ease);
+}
+
+.prose .sidenote-reference a:hover {
+  transform: scale(1.15);
+}
+
+.prose .sidenote {
+  position: absolute;
+  width: 190px;
+  margin: 0;
+  padding: 8px 0 0;
+  border: 0;
+  font-family: var(--serif-zh);
+  font-size: 12.5px;
+  line-height: 1.85;
+  color: var(--ink-2);
+  letter-spacing: 0;
+  font-style: normal;
+}
+
+.prose .sidenote::before {
+  content: '';
+  position: absolute;
+  left: -18px;
+  top: 20px;
+  width: 10px;
+  height: 1px;
+  background: var(--accent);
+}
+
+.prose .sidenote::after {
+  content: '注 ' attr(data-index);
+  position: absolute;
+  top: -6px;
+  left: 0;
+  font-family: var(--mono);
+  font-size: 9px;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  background: var(--paper);
+  padding-right: 6px;
+}
+
+.prose .sidenote p {
+  margin: 0;
+  font-size: inherit;
+}
+
+/* 有旁注时，正文让出右侧页边 */
+@media (min-width: 1180px) {
+  .prose.has-sidenotes {
+    position: relative;
+    padding-right: 0;
+  }
+  .prose.has-sidenotes .sidenote {
+    left: calc(100% + 28px);
+    top: auto;
+    margin-top: 0;
+  }
+}
+
+/* 窄屏：旁注折叠成注解块 */
+@media (max-width: 1179px) {
+  .prose .sidenote {
+    position: relative;
+    width: auto;
+    margin: 1.2em 0 1.8em;
+    padding: 14px 16px 14px 18px;
+    background: var(--paper-2);
+    border-left: 2px solid var(--accent);
+    font-size: 13px;
+    line-height: 1.9;
+  }
+  .prose .sidenote::before {
+    display: none;
+  }
+  .prose .sidenote::after {
+    position: static;
+    display: block;
+    margin-bottom: 6px;
+    background: none;
+    padding: 0;
+  }
+}
+
+/* 打印 */
+@media print {
+  body::before,
+  .masthead,
+  .colophon,
+  .article-toc,
+  .article-margin,
+  .reading-progress,
+  .article-pager,
+  .related {
+    display: none !important;
+  }
+  .prose .sidenote {
+    position: relative;
+    width: auto;
+  }
+}
